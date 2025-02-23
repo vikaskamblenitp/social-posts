@@ -36,6 +36,12 @@ up the docker container
 docker compose up -d
 ```
 
+copy .env.example to .env.local
+```
+copy .env.example .env.local -- windows
+cp .env.example .env.local -- linux
+```
+
 start ther server
 ```
 npm run dev
