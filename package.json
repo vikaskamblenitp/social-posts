@@ -1,7 +1,7 @@
 {
-  "name": "ts-boilerplate",
+  "name": "social-posts",
   "version": "1.0.0",
-  "description": "ts-boilerplate supporting postgres, kafka, redis, bull-queue, logger",
+  "description": "A simple project to add social media posts using Node.js & MongoDB",
   "main": "index.ts",
   "scripts": {
     "start:dev": "cross-env-shell NODE_ENV=development npx babel-node dist/src/index.js",
