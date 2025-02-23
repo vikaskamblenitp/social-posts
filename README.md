@@ -5,7 +5,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+- [Technologies used](#technologies)
 
 ## About <a name = "about"></a>
 
@@ -44,3 +44,10 @@ npm run dev
 ## Usage <a name = "usage"></a>
 
 Add posts and fetch them using the [Postman Collection](https://dark-flare-835344.postman.co/workspace/Team-Workspace~7b28f28d-23c3-4567-86bc-c4b8e1f7822c/collection/22252908-1a4ec2f2-171e-41ac-a097-f719e844de4f?action=share&creator=22252908)
+
+## Usage <a name = "technologies"></a>
+Below technologies are used
+- Node.js
+- MongoDB
+- Mongoose
+- Docker
