@@ -1,10 +1,13 @@
 import { Router } from "express";
 import { controller as api } from "./controller.js";
-import { externalUploadMiddleware, validateTypedSchema } from "#middlewares";
+import { externalUploadMiddleware, methodNotAllowed, validateTypedSchema } from "#middlewares";
 import { schema } from "./schema.js";
 
 const router = Router();
 
-router.route("/posts").get(api.getPosts).post(externalUploadMiddleware("file"), validateTypedSchema(schema.addPosts), api.addPost);
+router.route("/posts")
+.post(externalUploadMiddleware("file"), validateTypedSchema(schema.addPosts), api.addPost)
+    .get(validateTypedSchema(schema.getPosts), api.getPosts)
+    .all(methodNotAllowed);
 
 export default router;

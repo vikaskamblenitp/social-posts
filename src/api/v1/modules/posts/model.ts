@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const {Schema} = mongoose;
+const {ObjectId} = Schema;
 
-var imageSchema = new mongoose.Schema({
+const imageSchema = new mongoose.Schema({
     filename: String,
     data: Buffer,
     contentType: String,
@@ -16,6 +16,8 @@ const postSchema = new Schema({
   created_at: {type: Date, default: Date.now },
   updated_at: {type: Date, default: Date.now }
 });
+
+postSchema.index({ title: "text", desc: "text" });
 
 const tagSchema = new Schema({
   tag: { type: String, index: true },

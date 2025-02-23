@@ -31,10 +31,11 @@ export const validateTypedSchema = (schema: AnyZodObject): RequestHandler => asy
 		if (isNonEmptyArray(typedError?.issues)) {
 			typedError.name = "InvalidSchemaError";
 			logger.error(typedError);
-      const message = typedError.issues.map((issue) => `${issue.path.join(".")}:${issue.message}`).join(", ");
+      		const message = typedError.issues.map((issue) => `${issue.path.join(".")}:${issue.message}`).join(", ");
 			return next(new ValidationMiddlewareError(message, StatusCodes.BAD_REQUEST, ERROR_CODES.INVALID));
 		}
 
-    return next(error);
+		console.log(error);
+		return next(new ValidationMiddlewareError(typedError.message, StatusCodes.BAD_REQUEST, ERROR_CODES.INVALID));
 	}
 };
