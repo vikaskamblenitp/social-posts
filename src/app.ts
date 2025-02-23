@@ -1,5 +1,5 @@
 import express from "express";
-import routes from "./api/index.js";
+import apiRoutes from "./api/index.js";
 import { pinoHttpLogger } from "#helpers";
 
 const app = express();
@@ -13,6 +13,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use(routes);
+app.use("/api", apiRoutes);
 
 export { app };
