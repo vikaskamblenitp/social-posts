@@ -1,5 +1,5 @@
 import { envConfig } from '#configs';
-import { connectDb, logger, redisConfig, redisConnect } from '#helpers';
+import { connectDb, logger } from '#helpers';
 import { app } from './app.js';
 import { IncomingMessage, Server, ServerResponse } from 'http';
 
@@ -8,7 +8,6 @@ let server: null | Server<typeof IncomingMessage, typeof ServerResponse> = null;
 const init = async () => {
 	await connectDb();
 
-	await redisConnect(redisConfig, logger);
 	server = app.listen(envConfig.APP_PORT, () => {
 		logger.info(`Listening on ${envConfig.HOSTNAME} http://localhost:${envConfig.APP_PORT}`);
 	}) as Server<typeof IncomingMessage, typeof ServerResponse>;
