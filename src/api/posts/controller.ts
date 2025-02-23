@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { sse } from "./sse.js";
+import { posts } from "./posts.js";
 import { catchAsync } from "#utils/index.js";
 
 export const controller = {
-  setupSSE: catchAsync(async (req: Request, res: Response) => {
-    const response = await sse.addClient(req);
+  addPost: catchAsync(async (req: Request, res: Response) => {
+    const response = await posts.addPost(req.body);
     return res.status(200).json(response);
   })
 }
